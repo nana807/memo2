@@ -53,7 +53,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ro1-Ge-DjR"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="table" destination="bGM-uk-jpc" id="GyJ-PN-m34"/>
                         <segue destination="1t2-Le-nZH" kind="show" identifier="toNextViewController" id="ZEj-XY-L4W"/>
                     </connections>
                 </viewController>
