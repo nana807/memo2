@@ -10,56 +10,42 @@ import UIKit
 var MemoNakami = [String]()
 
 
-class MemoViewController: UIViewController,UITextFieldDelegate {
+class MemoViewController: UIViewController {
 
-    @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var contentTextView: UITextView!
-    
-    var saveData: UserDefaults = UserDefaults.standard
+    @IBOutlet var TodoTextField: UITextField!
     
         
+    @IBAction func TodoAddButton(_ sender: Any) {
+        
+        MemoNakami.append(TodoTextField.text!)
+        TodoTextField.text = ""
+        UserDefaults.standard.set( MemoNakami, forKey: "TodoList" )
+        
+    }
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        titleTextField.text = saveData.object(forKey: "title") as? String
-        contentTextView.text = saveData.object(forKey: "content") as? String
-        titleTextField.delegate = self
         // Do any additional setup after loading the view.
     }
+    override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+        }
     
-    @IBAction func TodoAddButton(_ sender: Any) {
     }
   
         
         
-        titleTextField.text = ""
-        contentTextView.text = ""
-        
-        
-        
     let alert: UIAlertController = UIAlertController(title: "保存", message: "メモの保存が完了しました。",preferredStyle: .alert)
+ 
+
     
-    alert.addAction(
-    UIAlertAction(
-    title: "OK",
-    style: .default,
-    handler: { action in
-        self.navigationController?.popViewController(animated: true)
-        print("OKボタンが押されました")
-        
-    }
-    )
-    )
-    present(alert, animated: true, completion: nil)
-        
-        
-    }
     
-    @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+   
+    
+    
         
-        
-    }
+    
     /*
     // MARK: - Navigation
 
