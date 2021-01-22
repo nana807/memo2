@@ -15,6 +15,8 @@
 		494B839825984562002600AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494B839625984562002600AD /* LaunchScreen.storyboard */; };
 		494B83A325984562002600AD /* memo2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B83A225984562002600AD /* memo2Tests.swift */; };
 		494B83AE25984562002600AD /* memo2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B83AD25984562002600AD /* memo2UITests.swift */; };
+		494B83BF25984CD9002600AD /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B83BE25984CD9002600AD /* MemoViewController.swift */; };
+		494B83C425986F3D002600AD /* IthiranViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B83C325986F3D002600AD /* IthiranViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		494B83A925984562002600AD /* memo2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memo2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		494B83AD25984562002600AD /* memo2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memo2UITests.swift; sourceTree = "<group>"; };
 		494B83AF25984562002600AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		494B83BE25984CD9002600AD /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		494B83C325986F3D002600AD /* IthiranViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IthiranViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				494B839425984562002600AD /* Assets.xcassets */,
 				494B839625984562002600AD /* LaunchScreen.storyboard */,
 				494B839925984562002600AD /* Info.plist */,
+				494B83BE25984CD9002600AD /* MemoViewController.swift */,
+				494B83C325986F3D002600AD /* IthiranViewController.swift */,
 			);
 			path = memo2;
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494B83C425986F3D002600AD /* IthiranViewController.swift in Sources */,
+				494B83BF25984CD9002600AD /* MemoViewController.swift in Sources */,
 				494B839025984561002600AD /* ViewController.swift in Sources */,
 				494B838C25984561002600AD /* AppDelegate.swift in Sources */,
 				494B838E25984561002600AD /* SceneDelegate.swift in Sources */,
