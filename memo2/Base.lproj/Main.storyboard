@@ -23,7 +23,7 @@
                                     <navigationItem title="todo" id="gdz-md-EF9">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y7U-L6-UcP">
                                             <connections>
-                                                <segue destination="Cce-5I-iKG" kind="show" id="EhO-mc-ecZ"/>
+                                                <segue destination="Cce-5I-iKG" kind="presentation" modalPresentationStyle="automatic" id="EhO-mc-ecZ"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -48,17 +48,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Todo" id="k7x-8M-R3b"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="j4J-J6-YIO"/>
                     <navigationItem key="navigationItem" title="Title" id="Rkj-l8-4Za">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ro1-Ge-DjR"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="TableView" destination="bGM-uk-jpc" id="oOC-7p-6ac"/>
                         <segue destination="1t2-Le-nZH" kind="show" identifier="toNextViewController" id="ZEj-XY-L4W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2838" y="37"/>
+            <point key="canvasLocation" x="3747.826086956522" y="36.830357142857139"/>
         </scene>
         <!--メモ-->
         <scene sceneID="SIO-yo-wj9">
@@ -90,7 +91,6 @@
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8St-c5-EL5">
                                             <connections>
                                                 <action selector="cancel:" destination="Cce-5I-iKG" id="v9e-Bo-W4i"/>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="7H3-5i-GcJ"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ofh-dM-875">
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvG-8D-AEG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4294" y="-585"/>
+            <point key="canvasLocation" x="5202.898550724638" y="-585.26785714285711"/>
         </scene>
         <!--To Next View Controller-->
         <scene sceneID="KbQ-jt-pjO">
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnJ-lc-mxf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4749" y="171"/>
+            <point key="canvasLocation" x="5657.971014492754" y="170.75892857142856"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="ddB-Ja-Sr8">
@@ -190,9 +190,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="y8o-3x-czF"/>
                         <segue destination="7Fa-ZA-fmb" kind="relationship" relationship="viewControllers" id="GX3-fW-2UV"/>
                         <segue destination="mK3-4I-ORW" kind="relationship" relationship="viewControllers" id="NN1-xB-YGR"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="mPZ-YF-dIK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exc-of-rNE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -267,12 +267,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqa-rT-7Bo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3616" y="591"/>
+            <point key="canvasLocation" x="4526.0869565217399" y="590.625"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="7H3-5i-GcJ"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -8,6 +8,33 @@
 import UIKit
 
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
+    
+    var MemoNakami = [String]()
+
+    let userDefaults = UserDefaults.standard
+
+    @IBOutlet weak var TableView: UITableView!
+    
+    var observer: NSKeyValueObservation?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        print(MemoNakami)
+        if UserDefaults.standard.object(forKey: "TodoList") != nil {
+            MemoNakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
+        
+//            observer = userDefaults.observe(\.todo, options: [.initial, .new]) { (_, change) in
+//                        // クロージャーの中ではselfが必須になる
+//                        self.MemoNakami = change.newValue ?? []
+//                      //  self.tableView.reloadData()
+//                    }
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MemoNakami.count
     }
@@ -21,26 +48,20 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
 
     }
 
+
+
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
         
-        if UserDefaults.standard.object(forKey: "TodoList") != nil {
-            MemoNakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
-        
-            
-            func didReceiveMemoryWarning() {
-                    super.didReceiveMemoryWarning()
-                }
-        // Do any additional setup after loading the view.
-        //テーブルビューはviewcontrollerswiftで表示する、という設定
-         
-    
-    
-    
         }
-    }
+}
+
+//extension UserDefaults {
+//    @objc dynamic var todo: [String] {
+//        return array(forKey: "todo") as? [String] ?? []
+//    }
+//}
 
 }
+

@@ -7,11 +7,14 @@
 
 import UIKit
 
-var MemoNakami = [String]()
-
 
 class MemoViewController: UIViewController {
 
+    var MemoNakami = [String]()
+
+    let userDefaults = UserDefaults.standard
+
+    
     @IBOutlet var TodoTextField: UITextField!
     
         
@@ -19,8 +22,10 @@ class MemoViewController: UIViewController {
         
         MemoNakami.append(TodoTextField.text!)
         TodoTextField.text = ""
-        UserDefaults.standard.set( MemoNakami, forKey: "TodoList" )
+        userDefaults.set(MemoNakami, forKey: "TodoList" )
         
+       print(MemoNakami)
+        dismiss(animated: true, completion: nil)
     }
   
     
