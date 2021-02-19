@@ -7,9 +7,19 @@
 
 import UIKit
 
+import RealmSwift
+
+class TodoItem: Object {
+    @objc dynamic var title: String = ""
+    @objc dynamic var time: Double = 0.0
+}
+
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
+
     
-    var MemoNakami = [String]()
+    let realm = try! Realm()
+    
+    var todoArray = [TodoItem]()
 
     let userDefaults = UserDefaults.standard
 
@@ -20,12 +30,22 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        TableView.dataSource = self
+        TableView.delegate = self
+        TableView.reloadData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        todoArray = realm.objects(TodoItem.self).map({ $0 })
+        TableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil), forCellReuseIdentifier: "TodoCell")
+        TableView.reloadData()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        print(MemoNakami)
+       
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
-            MemoNakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
+            todoArray = UserDefaults.standard.object(forKey: "TodoList") as! [TodoItem]
         
 //            observer = userDefaults.observe(\.todo, options: [.initial, .new]) { (_, change) in
 //                        // クロージャーの中ではselfが必須になる
@@ -35,33 +55,35 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MemoNakami.count
-    }
-    
+   
+}
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
-        //変数の中身を作る
-        TodoCell.textLabel!.text = MemoNakami[indexPath.row]
-        //戻り値の設定（表示する中身)
-        return TodoCell
-
-    }
-
-
-
+         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoTableViewCell
+        cell.titleLabel.text = todoArray[indexPath.row].title
+        cell.durationLabel.text = String(Int((todoArray[indexPath.row].time)/60)) + "min"
     
-    override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        todoArray.count
+            }
+
+   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            todoArray.remove(at: indexPath.row)
+            try! realm.write{
+              realm.delete(self.todoArray[indexPath.row])
+                            }
+            
+                            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+               
+            
+                
         
         }
+
 }
-
-//extension UserDefaults {
-//    @objc dynamic var todo: [String] {
-//        return array(forKey: "todo") as? [String] ?? []
-//    }
-//}
-
+    
 }
 
