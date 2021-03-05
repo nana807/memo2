@@ -71,11 +71,14 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
 
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            todoArray.remove(at: indexPath.row)
-//            try! realm.write{
-//              realm.delete(self.todoArray[indexPath.row])
-//                print("deleteされました")
-//                            }
+            
+            try! realm.write{
+              realm.delete(self.todoArray[indexPath.row])
+                print("deleteされました")
+                
+                todoArray.remove(at: indexPath.row)
+                
+                            }
             
                             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
                

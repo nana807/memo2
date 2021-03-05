@@ -30,35 +30,46 @@ class MemoViewController: UIViewController {
             
         }
         
-        let updataTodo: TodoItem
-        if let todo = todo {
-            updataTodo = todo
-        }else {
-            updataTodo = TodoItem()
-        }
-       
-        try! realm.write{
-            updataTodo.title = title
-            updataTodo.time = TodoTimePicker.countDownDuration
-            realm.add(updataTodo)
-            
-            
-        }
+ 
         
     
         
-        let _: UIAlertController = UIAlertController(title: "TODO", message: "Todoを追加します", preferredStyle: .alert)
+        let alert: UIAlertController = UIAlertController(title: "TODO", message: "Todoを追加します", preferredStyle: .alert)
         
         alert.addAction(
             UIAlertAction(
             title: "OK",
                 style: .default,
                 handler: { action in
+                    
+                    let updataTodo: TodoItem
+                    if let todo = self.todo {
+                        updataTodo = todo
+                    }else {
+                        updataTodo = TodoItem()
+                    }
+                   
+                    try! self.realm.write{
+                        updataTodo.title = title
+                        updataTodo.time = self.TodoTimePicker.countDownDuration
+                        self.realm.add(updataTodo)
+                        
+                    }
+                    
                     self.dismiss(animated: true, completion: nil)
-                    print("OKボタンが押されました")
+                    print("保存しました")
                 }
                 )
         )
+        
+        alert.addAction(
+            UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: { action in
+                    print("保存をキャンセルしました")
+                
+                }))
         present(alert, animated: true, completion: nil)
     }
   

@@ -160,7 +160,7 @@
         <!--Item 1-->
         <scene sceneID="ddB-Ja-Sr8">
             <objects>
-                <viewController id="7Fa-ZA-fmb" sceneMemberID="viewController">
+                <viewController id="7Fa-ZA-fmb" customClass="TimeViewController" customModule="memo2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YSf-ot-QQN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,15 +169,25 @@
                                 <rect key="frame" x="20" y="138" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNi-D7-8aP">
+                                <rect key="frame" x="124" y="204" width="167" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0xY-c1-Znv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="e7c-uy-l4e"/>
+                    <connections>
+                        <outlet property="timelabel" destination="sNi-D7-8aP" id="gyc-TE-3cL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MzT-dm-oUX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="-585"/>
+            <point key="canvasLocation" x="1657.9710144927537" y="-585.26785714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ykv-fo-0ei">
@@ -232,43 +242,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PD8-UE-RkU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2049" y="591"/>
-        </scene>
-        <!--Timer View Controller-->
-        <scene sceneID="0u7-S9-4wV">
-            <objects>
-                <viewController id="jgJ-RB-Rjh" customClass="TimerViewController" customModule="memo2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WRh-L5-PxM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWk-po-okG">
-                                <rect key="frame" x="186" y="354" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-NY-eFW">
-                                <rect key="frame" x="110" y="647" width="194" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="ok"/>
-                                <connections>
-                                    <action selector="closeBtnWasPressed:" destination="jgJ-RB-Rjh" eventType="touchUpInside" id="GyO-gj-5N6"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="aKB-fu-Wqp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="qQ0-1s-63Q"/>
-                    <connections>
-                        <outlet property="timeLabel" destination="gWk-po-okG" id="Ihh-nL-cv3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uqa-rT-7Bo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4526.0869565217399" y="590.625"/>
         </scene>
     </scenes>
     <resources>
